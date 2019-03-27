@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
- 
-
 }
 class DropdownMenuButton {
   dropdownMenuButton: HTMLSelectElement;
@@ -30,7 +28,7 @@ class DropdownMenuButton {
       alert(this.options2[this.options2.selectedIndex].value);
       //if (this.options2.selectedIndex >= 1)
           //document.location.href = this.options2[this.options2.selectedIndex].value;
-  } 
+  }
 
 }
 
@@ -40,7 +38,7 @@ window.onload = () => {
   let btngo: HTMLButtonElement = <HTMLButtonElement>document.getElementById("Transpose!");
   let ddm2: DropdownMenuButton = new DropdownMenuButton(select2);
   btngo.onclick = () => {
-      ddm2.OnClick(); 
-  }  
+      ddm2.OnClick();
+  }
 
 }
