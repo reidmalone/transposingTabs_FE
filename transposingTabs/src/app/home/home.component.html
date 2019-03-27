@@ -2,9 +2,8 @@
     <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
   </div>
 
-<h1 [class.gray]="h1Style">The fretboard will go below this</h1>
 
-
+<app-fretboard></app-fretboard>
 <select id="keyChoice">
     <option value="A">A</option>
     <option value="A#" selected="selected">A#</option>
@@ -21,7 +20,7 @@
   </select>
   <input id="Transpose!" type="button" value="Transpose!"/>
 
-<h2 style="text-align:center">Data</h2>
+<h2 style="text-align:center">DUMMY DATA</h2>
 <div *ngFor = "let posts of post" class="group">
   <p><b>Item :</b>{{posts.id}}</p>
   <p><b>Title :</b> {{posts.title}}</p>

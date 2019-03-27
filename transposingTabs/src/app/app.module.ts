@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
 
   MatIconModule, MatInputModule,
@@ -21,6 +19,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FretboardComponent } from './views/fretboard/fretboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AboutComponent,
     SearchBarComponent,
+    FretboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatAutocompleteModule,
     MatChipsModule,
     MatFormFieldModule,
+    ScrollingModule,
+    MatGridListModule
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]
