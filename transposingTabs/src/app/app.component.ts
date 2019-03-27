@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-
+import { Post } from './post';
+import { DataService } from './data.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'transposingTabs';
+  title = 'app';
+
+  post:Post[]
+  constructor(
+    private dataService: DataService
+  ) {
+
+  }
+
+
 }
