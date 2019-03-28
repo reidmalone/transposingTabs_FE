@@ -23,6 +23,7 @@ import { FretboardComponent } from './views/fretboard/fretboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     HomeComponent,
     AboutComponent,
     SearchBarComponent,
-    FretboardComponent
+    FretboardComponent,
+    TextAreaComponent
   ],
   imports: [
     BrowserModule,

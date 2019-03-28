@@ -1,0 +1,6 @@
+<h1>Input tabs below</h1>
+<textarea ref-textarea [(ngModel)]="textValue" rows="4"></textarea><br/>
+<button (click)="logText(textarea.value)">Update Log</button>
+<button (click)="textValue=''">Clear</button>
+<h2>Log <button (click)="log=''">Clear</button></h2>
+<pre>{{log}}</pre>

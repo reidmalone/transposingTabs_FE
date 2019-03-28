@@ -8,6 +8,8 @@ import { Post } from '../post';
   styleUrls: ['./home.component.scss']
 })
 
+
+
 export class HomeComponent implements OnInit {
 
   h1Style: boolean = false;
@@ -38,6 +40,7 @@ getFilteredExpenseList() {
 }
 
 }
+
 
 
 class DropdownMenuButton {
