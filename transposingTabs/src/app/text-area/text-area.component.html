@@ -2,5 +2,22 @@
 <textarea ref-textarea [(ngModel)]="textValue" rows="4"></textarea><br/>
 <button (click)="logText(textarea.value)">Update Log</button>
 <button (click)="textValue=''">Clear</button>
+<select id="currentKey">
+    <option value="A">A</option>
+    <option value="A#" selected="selected">A#</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="C#">C#</option>
+    <option value="D">D</option>
+    <option value="D#">D#</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="F#">F#</option>
+    <option value="G">G</option>
+    <option value="G#">G#</option>
+  </select>
+  <input id="selectKey" type="button" value="Select Key"/>
+
+
 <h2>Log <button (click)="log=''">Clear</button></h2>
 <pre>{{log}}</pre>
