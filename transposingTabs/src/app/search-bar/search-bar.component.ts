@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
-import { Post } from '../post';
+import { Song } from '../song';
 
 @Component({
     selector: 'app-search-bar',
@@ -13,7 +13,7 @@ export class SearchBarComponent implements OnInit {
 
     myControl = new FormControl();
     filteredOptions: Observable<string[]>;
-    allPosts: Post[];
+    allSongs: Song[];
     autoCompleteList: any[]
 
     @ViewChild('autocompleteInput') autocompleteInput: ElementRef;
@@ -24,8 +24,9 @@ export class SearchBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataService.getPosts().subscribe(posts => {
-      this.allPosts = posts
+    this.dataService.getAllSongs().subscribe(songs => {
+      this.allSongs = songs
+      console.log(songs);
 
     });
 
@@ -47,24 +48,24 @@ export class SearchBarComponent implements OnInit {
     if (val === '' || val === null) {
       return [];
     }
-    return val ? this.allPosts.filter(s => s.title.toLowerCase().indexOf(val.toLowerCase()) != -1)
-      : this.allPosts;
+    return val ? this.allSongs.filter(s => s.song_name.toLowerCase().indexOf(val.toLowerCase()) != -1)
+      : this.allSongs;
   }
 
-  displayFn(post: Post) {
-    let k = post ? post.title : post;
+  displayFn(song: Song) {
+    let k = song ? song.song_name : song;
     return k;
   }
 
   filterPostList(event) {
-    var posts= event.source.value;
-        if(!posts) {
+    var songs= event.source.value;
+        if(!songs) {
           this.dataService.searchOption=[]
         }
         else {
           console.log("not")
 
-            this.dataService.searchOption.push(posts);
+            this.dataService.searchOption.push(songs);
             this.onSelectedOption.emit(this.dataService.searchOption)
         }
 

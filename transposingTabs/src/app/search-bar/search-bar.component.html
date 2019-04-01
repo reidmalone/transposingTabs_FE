@@ -3,7 +3,7 @@
     <mat-chip-list #chipList>
       <mat-chip style="margin-top:0.4em;" *ngFor="let option of this.dataService.searchOption" (removed)="removeOption(option)">
 
-        <span>{{option.title}}</span>
+        <span>{{option.song_name}}</span>
 
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
@@ -12,7 +12,7 @@
         <mat-icon>search</mat-icon>
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let option of autoCompleteList" [value]="option" (onSelectionChange)="filterPostList($event)">
-          {{option.title}}
+          {{option.song_name}}
         </mat-option>
       </mat-autocomplete>
     </mat-chip-list>

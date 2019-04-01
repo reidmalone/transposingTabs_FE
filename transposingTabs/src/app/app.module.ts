@@ -10,6 +10,9 @@ import {
 
 } from '@angular/material';
 
+import {MatButtonModule} from '@angular/material/button';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -48,7 +51,8 @@ import { TextAreaComponent } from './text-area/text-area.component';
     MatChipsModule,
     MatFormFieldModule,
     ScrollingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

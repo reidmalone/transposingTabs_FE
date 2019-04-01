@@ -3,26 +3,36 @@
   </div>
 
 
-<app-fretboard></app-fretboard>
-<select id="keyChoice">
-    <option value="A">A</option>
-    <option value="A#" selected="selected">A#</option>
-    <option value="B">B</option>
-    <option value="C">C</option>
-    <option value="C#">C#</option>
-    <option value="D">D</option>
-    <option value="D#">D#</option>
-    <option value="E">E</option>
-    <option value="F">F</option>
-    <option value="F#">F#</option>
-    <option value="G">G</option>
-    <option value="G#">G#</option>
-  </select>
-<input id="Transpose!" type="button" value="Transpose!"/>
-<app-text-area></app-text-area>
-<h2 style="text-align:center">DUMMY DATA</h2>
-<div *ngFor = "let posts of post" class="group">
-  <p><b>Item :</b>{{posts.id}}</p>
-  <p><b>Title :</b> {{posts.title}}</p>
-  <p><b>Body: </b>{{posts.body}}</p>
+<app-fretboard [view-value]=newTabs></app-fretboard>
+  <mat-form-field>
+      <select matNativeControl required #keychoice id="keyChooser">
+          <option value="A">A</option>
+          <option value="A#" selected="selected">A#</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="C#">C#</option>
+          <option value="D">D</option>
+          <option value="D#">D#</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="F#">F#</option>
+          <option value="G">G</option>
+          <option value="G#">G#</option>
+      </select>
+    </mat-form-field>
+  <button mat-raised-button color="primary" (click)="getSongTabs(currentSong,currentArtist,currentAlbum,keychoice.value)">Transpose</button>
+  <app-text-area></app-text-area>
+<h2 style="text-align:center">Song List</h2>
+<!-- Implement pagination for this so that it only shows top 10 -->
+<div *ngFor = "let song of songList" class="group">
+  <button mat-raised-button color="primary" class="buttonElementStyling" (click)="getSongTabs(song.song_name,song.artist,song.album,song.default_key)">
+    {{song.song_name}} <br>
+    {{song.album}} <br>
+    {{song.artist}}
+  </button>
+ <!-- <p><b>Item: </b>{{song.id}}</p> -->
+ <!-- <p><b>Song Name: </b>{{song.song_name}}</p>
+ <p><b>Album: </b>{{song.album}}</p>
+ <p><b>Artist: </b>{{song.artist}}</p> -->
+ <!-- <p><b>default_key: </b>{{song.default_key}}</p> -->
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Post } from './post';
+import { Song } from './song';
 import { DataService } from './data.service';
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { DataService } from './data.service';
 export class AppComponent {
   title = 'app';
 
-  post:Post[]
+  post:Song[]
   constructor(
     private dataService: DataService
   ) {
