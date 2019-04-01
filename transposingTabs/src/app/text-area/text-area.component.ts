@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component,Output, EventEmitter } from "@angular/core";
 import { DataService } from "../data.service";
 
 @Component({
@@ -11,6 +11,7 @@ export class TextAreaComponent {
   songNameTextValue = "please enter song name";
   albumNameTextValue = "please enter album name";
   artistNameTextValue = "please enter artist name";
+  @Output() songSaved = new EventEmitter<string>();
 
   constructor(private dataService: DataService) {}
 
@@ -30,6 +31,7 @@ export class TextAreaComponent {
     );
     response.subscribe(value => {
       console.log(value);
+      this.songSaved.emit();
     });
   }
 }

@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getAllSongs();
+  }
+
+  getAllSongs()
+  {
     this.dataService.getAllSongs().subscribe(songs => {
       this.songList = songs
       this.dataService.songsData = songs

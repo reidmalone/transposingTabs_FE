@@ -21,13 +21,12 @@ export class SearchBarComponent implements OnInit {
 
   constructor(
     private dataService: DataService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.dataService.getAllSongs().subscribe(songs => {
       this.allSongs = songs
       console.log(songs);
-
     });
 
     this.myControl.valueChanges.subscribe(userInput => {
