@@ -31,6 +31,24 @@ export class DataService {
     return this.http.get<Tab>(this.postUrl + routeEnding);
   }
 
+  saveSong(
+    song_name: string,
+    artist: string,
+    album: string,
+    songKey: string,
+    tabText:string,
+  ): Observable<Response> {
+    var routeEnding: string = "/save";
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
+    let options = { headers: headers };
+
+    //{"songName":"Stairway To Heaven","artist":"Led Zeppelin","album":"No Idea","default_key":"Ab","Tab":"E|-------5-7-----7-|-8-----8-2-----2-|-0---------0-----|-----------------| B|-----5-----5-----|---5-------3-----|---1---1-----1---|-0-1-1-----------|G|---5---------5---|-----5-------2---|-----2---------2-|-0-2-2-----------|D|-7-------6-------|-5-------4-------|-3---------------|-----------------|A|-----------------|-----------------|-----------------|-2-0-0---0--/8-7-|E|-----------------|-----------------|-----------------|-----------------|"}
+    let body = { "songName" : song_name, "artist" : artist, "album" : album, "default_key":songKey,"Tab": tabText };
+    return this.http.post<Response>(this.postUrl + routeEnding, body, options);
+  }
+
   filteredListOptions() {
     const songs = this.songsData;
     const filteredSongsList = [];

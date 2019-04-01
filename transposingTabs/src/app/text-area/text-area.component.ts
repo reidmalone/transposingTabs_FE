@@ -1,15 +1,37 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { DataService } from "../data.service";
 
 @Component({
-  selector: 'app-text-area',
-  templateUrl: './text-area.component.html',
-  styleUrls: ['./text-area.component.scss']
-
+  selector: "app-text-area",
+  templateUrl: "./text-area.component.html",
+  styleUrls: ["./text-area.component.scss"]
 })
 export class TextAreaComponent {
+  tabTextValue = "paste tabs here";
+  songNameTextValue = "please enter song name";
+  albumNameTextValue = "please enter album name";
+  artistNameTextValue = "please enter artist name";
 
-  textValue = 'paste tabs here';
+  constructor(private dataService: DataService) {}
 
+  saveSong(
+    songName: string,
+    artistName: string,
+    albumName: string,
+    inputKey: string,
+    tabText: string
+  ) {
+    var response = this.dataService.saveSong(
+      songName,
+      artistName,
+      albumName,
+      inputKey,
+      tabText
+    );
+    response.subscribe(value => {
+      console.log(value);
+    });
+  }
 }
 
 // class DropdownMenuButton {
@@ -21,7 +43,6 @@ export class TextAreaComponent {
 //       this.options2 = dropdown.options;
 //       }
 
-
 //   OnClick() {
 //       alert(this.options2[this.options2.selectedIndex].value);
 //       //if (this.options2.selectedIndex >= 1)
@@ -29,7 +50,6 @@ export class TextAreaComponent {
 //   }
 
 // }
-
 
 // window.onload = () => {
 //   let select2: HTMLSelectElement = <HTMLSelectElement>document.getElementById("currentKey");

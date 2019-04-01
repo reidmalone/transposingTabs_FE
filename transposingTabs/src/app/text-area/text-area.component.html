@@ -1,14 +1,24 @@
 <!-- <textarea ref-textarea [(ngModel)]="textValue" rows="4"></textarea><br/> -->
 <mat-form-field class="example-full-width">
-    <textarea ref-textarea [(ngModel)]="textValue" rows="4" onfocus="this.value=''" matInput placeholder="Input tabs below"></textarea>
+    <textarea ref-textarea [(ngModel)]="songNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input song name"></textarea>
+  </mat-form-field>
+<mat-form-field class="example-full-width">
+    <textarea ref-textarea [(ngModel)]="albumNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input album name"></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+      <textarea ref-textarea [(ngModel)]="artistNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input artist name"></textarea>
+    </mat-form-field>
+<mat-form-field class="example-full-width">
+    <textarea ref-textarea [(ngModel)]="tabTextValue" rows="4" onfocus="this.value=''" matInput placeholder="Input tabs below"></textarea>
   </mat-form-field>
 <!-- <button mat-raised-button color="primary" (click)="logText(textarea.value)">Update Log</button> -->
-<button mat-raised-button color="primary" (click)="textValue=''">Clear</button>
+<!-- <button mat-raised-button color="primary" (click)="textValue=''">Clear Without Saving</button> -->
 <!--
 <button (click)="logText(textarea.value)"></button>
 <button (click)="textValue=''">Clear</button> -->
 <mat-form-field>
-    <select matNativeControl required #inputKeyChoice id="inputKeyChooser">
+
+    <select matNativeControl required #inputKeyChoice id="inputKeyChooser" placeholder="Enter New Songs Key" >
         <option value="A">A</option>
         <option value="A#" selected="selected">A#</option>
         <option value="B">B</option>
@@ -37,5 +47,6 @@
     <option value="G">G</option>
     <option value="G#">G#</option>
   </select> -->
-<button mat-raised-button color="primary" (click)="textValue=''">Save Song</button>
+  <button mat-raised-button color="primary" (click)="tabTextValue='';songNameTextValue='';albumNameTextValue='';artistNameTextValue=''">Clear Without Saving</button>
+<button mat-raised-button color="primary" (click)=" saveSong(songNameTextValue,artistNameTextValue,albumNameTextValue,inputKeyChoice.value,tabTextValue); tabTextValue=''; songNameTextValue=''; albumNameTextValue='';artistNameTextValue=''">Save Song</button>
   <!-- <input id="selectKey" type="button" value="Select Key"/> -->
