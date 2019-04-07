@@ -27,6 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { TabsViewComponent } from './views/tabs-view/tabs-view.component';
+import { ChordsViewComponent } from './views/chords-view/chords-view.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { TextAreaComponent } from './text-area/text-area.component';
     AboutComponent,
     SearchBarComponent,
     FretboardComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    TabsViewComponent,
+    ChordsViewComponent
   ],
   imports: [
     BrowserModule,

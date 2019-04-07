@@ -1,38 +1,32 @@
+<app-nav></app-nav>
 <div style="margin:auto; width: 70%; margin-top: 30px;">
     <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
   </div>
-
-
-<app-fretboard [view-value]=newTabs></app-fretboard>
-  <mat-form-field>
-      <select matNativeControl required #keychoice id="keyChooser">
-          <option value="A">A</option>
-          <option value="A#" selected="selected">A#</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="C#">C#</option>
-          <option value="D">D</option>
-          <option value="D#">D#</option>
-          <option value="E">E</option>
-          <option value="F">F</option>
-          <option value="F#">F#</option>
-          <option value="G">G</option>
-          <option value="G#">G#</option>
-      </select>
-    </mat-form-field>
-  <button mat-raised-button color="primary" (click)="getSongTabs(currentSong,currentArtist,currentAlbum,keychoice.value)">Transpose</button>
-  <app-text-area (songSaved)="getAllSongs()"></app-text-area>
+  <!-- <app-text-area (songSaved)="getAllSongs()"></app-text-area> -->
 <h2 style="text-align:center">Song List</h2>
 <!-- Implement pagination for this so that it only shows top 10 -->
 <div *ngFor = "let song of songList" class="group">
-  <button mat-raised-button color="primary" class="buttonElementStyling" (click)="getSongTabs(song.song_name,song.artist,song.album,song.default_key)">
-    {{song.song_name}} <br>
-    {{song.album}} <br>
-    {{song.artist}}
-  </button>
- <!-- <p><b>Item: </b>{{song.id}}</p> -->
- <!-- <p><b>Song Name: </b>{{song.song_name}}</p>
- <p><b>Album: </b>{{song.album}}</p>
- <p><b>Artist: </b>{{song.artist}}</p> -->
- <!-- <p><b>default_key: </b>{{song.default_key}}</p> -->
+  <mat-grid-list cols="3" rowHeight="100px" gutterSize="0px"  >
+      <mat-grid-tile>
+          <button mat-raised-button color="primary" class="buttonElementStyling" (click)="gotoChords(song.song_name,song.artist,song.album,song.default_key)">
+              <br>
+            Chords <br>
+              <br>
+            </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button color="primary" class="buttonElementStyling">
+          {{song.song_name}} <br>
+          {{song.album}} <br>
+          {{song.artist}}
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <button mat-raised-button color="primary" class="buttonElementStyling" (click)="gotoTabs(song.song_name,song.artist,song.album,song.default_key)">
+              <br>
+            Tabs <br>
+              <br>
+            </button>
+      </mat-grid-tile>
+  </mat-grid-list>
 </div>
