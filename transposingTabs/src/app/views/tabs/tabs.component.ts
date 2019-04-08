@@ -3,11 +3,11 @@ import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-tabs-view',
-  templateUrl: './tabs-view.component.html',
-  styleUrls: ['./tabs-view.component.scss']
+  selector: 'app-tabs',
+  templateUrl: './tabs.component.html',
+  styleUrls: ['./tabs.component.scss']
 })
-export class TabsViewComponent implements OnInit {
+export class TabsComponent implements OnInit {
 
   newTabs: any;
   currentSong:string;

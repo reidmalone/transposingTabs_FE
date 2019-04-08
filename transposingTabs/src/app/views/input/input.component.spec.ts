@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChordsViewComponent } from './chords-view.component';
+import { InputComponent } from './input.component';
 
-describe('ChordsViewComponent', () => {
-  let component: ChordsViewComponent;
-  let fixture: ComponentFixture<ChordsViewComponent>;
+describe('InputComponent', () => {
+  let component: InputComponent;
+  let fixture: ComponentFixture<InputComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChordsViewComponent ]
+      declarations: [ InputComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChordsViewComponent);
+    fixture = TestBed.createComponent(InputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,30 +1,35 @@
-<app-nav></app-nav>
 <div style="margin:auto; width: 70%; margin-top: 30px;">
     <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
   </div>
-  <!-- <app-text-area (songSaved)="getAllSongs()"></app-text-area> -->
-<h2 style="text-align:center">Song List</h2>
+  <div class="header">
+      <h2>Select Chord</h2>
+      <h2>Select Song</h2>
+      <h2>Select Tab</h2>
+  </div>
+
 <!-- Implement pagination for this so that it only shows top 10 -->
 <div *ngFor = "let song of songList" class="group">
-  <mat-grid-list cols="3" rowHeight="100px" gutterSize="0px"  >
+  <mat-grid-list cols="3" rowHeight="110px" gutterSize="2px">
       <mat-grid-tile>
           <button mat-raised-button color="primary" class="buttonElementStyling" (click)="gotoChords(song.song_name,song.artist,song.album,song.default_key)">
               <br>
-            Chords <br>
+              Chords<br>
               <br>
             </button>
       </mat-grid-tile>
       <mat-grid-tile>
-        <button mat-raised-button color="primary" class="buttonElementStyling">
-          {{song.song_name}} <br>
-          {{song.album}} <br>
-          {{song.artist}}
+        <button mat-raised-button color="primary" class="buttonCenterElementStyling">
+          <div style="display: inline-block; text-align: left; width:30%;">
+          Song: {{song.song_name}} <br>
+          Album: {{song.album}}<br>
+          Arist: {{song.artist}}<br>
+          </div>
         </button>
       </mat-grid-tile>
       <mat-grid-tile>
           <button mat-raised-button color="primary" class="buttonElementStyling" (click)="gotoTabs(song.song_name,song.artist,song.album,song.default_key)">
               <br>
-            Tabs <br>
+              Tabs<br>
               <br>
             </button>
       </mat-grid-tile>
