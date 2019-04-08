@@ -9,7 +9,7 @@
 
 <!-- Implement pagination for this so that it only shows top 10 -->
 <div *ngFor = "let song of songList" class="group">
-  <mat-grid-list cols="3" rowHeight="110px" gutterSize="2px">
+  <mat-grid-list cols="3" rowHeight="110px" gutterSize="1px">
       <mat-grid-tile>
           <button mat-raised-button color="primary" class="buttonElementStyling" (click)="gotoChords(song.song_name,song.artist,song.album,song.default_key)">
               <br>
