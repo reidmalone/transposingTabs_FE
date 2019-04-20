@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Song } from "./song";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
+import { tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Tab } from "./tab";
 
@@ -13,6 +14,12 @@ export class DataService {
   postUrl: string = "http://localhost:3000/songsDBRoutes";
 
   constructor(private http: HttpClient) {}
+
+  private _refreshNeeded$ = new Subject<void>();
+
+  get refreshNeeded$() {
+    return this._refreshNeeded$;
+  }
 
   getAllSongs(): Observable<Song[]> {
     var routeEnding: string = "/getAll";
@@ -46,7 +53,11 @@ export class DataService {
 
     //{"songName":"Stairway To Heaven","artist":"Led Zeppelin","album":"No Idea","default_key":"Ab","Tab":"E|-------5-7-----7-|-8-----8-2-----2-|-0---------0-----|-----------------| B|-----5-----5-----|---5-------3-----|---1---1-----1---|-0-1-1-----------|G|---5---------5---|-----5-------2---|-----2---------2-|-0-2-2-----------|D|-7-------6-------|-5-------4-------|-3---------------|-----------------|A|-----------------|-----------------|-----------------|-2-0-0---0--/8-7-|E|-----------------|-----------------|-----------------|-----------------|"}
     let body = { "songName" : song_name, "artist" : artist, "album" : album, "default_key":songKey,"Tab": tabText };
-    return this.http.post<Response>(this.postUrl + routeEnding, body, options);
+    return this.http.post<Response>(this.postUrl + routeEnding, body, options)
+    .pipe(tap(() => {
+      this._refreshNeeded$.next();
+    })
+    );
   }
 
   filteredListOptions() {

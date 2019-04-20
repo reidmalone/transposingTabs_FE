@@ -1,5 +1,6 @@
-import { Component,Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { DataService } from "../../data.service";
+
 
 @Component({
   selector: "app-text-area",
@@ -11,6 +12,7 @@ export class TextAreaComponent {
   songNameTextValue = "please enter song name";
   albumNameTextValue = "please enter album name";
   artistNameTextValue = "please enter artist name";
+  showSpinner = false;
   @Output() songSaved = new EventEmitter<string>();
 
   constructor(private dataService: DataService) {}
@@ -29,9 +31,16 @@ export class TextAreaComponent {
       inputKey,
       tabText
     );
+    this.showSpinner = true;
     response.subscribe(value => {
       console.log(value);
       this.songSaved.emit();
     });
+
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+
+    }, 3000);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subject} from 'rxjs';
 import { DataService } from '../../data.service';
 import { Song } from '../../song';
 
@@ -27,11 +27,16 @@ export class SearchBarComponent implements OnInit {
     this.dataService.getAllSongs().subscribe(songs => {
       this.allSongs = songs
       console.log(songs);
+
     });
 
     this.myControl.valueChanges.subscribe(userInput => {
       this.autoCompleteExpenseList(userInput);
     })
+
+    this.dataService.refreshNeeded$.subscribe(() => {
+      this.filterPostList(event);
+    });
   }
 
   private autoCompleteExpenseList(input) {
@@ -58,17 +63,17 @@ export class SearchBarComponent implements OnInit {
 
   filterPostList(event) {
     var songs= event.source.value;
-        if(!songs) {
+    if(!songs) {
           this.dataService.searchOption=[]
         }
         else {
           console.log("not")
 
-            this.dataService.searchOption.push(songs);
-            this.onSelectedOption.emit(this.dataService.searchOption)
+          this.dataService.searchOption.push(songs);
+          this.onSelectedOption.emit(this.dataService.searchOption)
         }
 
-        this.focusOnPlaceInput();
+    this.focusOnPlaceInput();
 
 
 
@@ -80,9 +85,9 @@ export class SearchBarComponent implements OnInit {
     let index = this.dataService.searchOption.indexOf(option);
     if (index >= 0)
         this.dataService.searchOption.splice(index, 1);
-        this.focusOnPlaceInput();
+    this.focusOnPlaceInput();
 
-        this.onSelectedOption.emit(this.dataService.searchOption)
+    this.onSelectedOption.emit(this.dataService.searchOption)
 }
 
 focusOnPlaceInput() {

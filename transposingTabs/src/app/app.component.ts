@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Song } from './song';
 import { DataService } from './data.service';
 import { RouterOutlet } from '@angular/router';
-import {slider,slider2} from './route-animations';
+import {slider, slider2} from './route-animations';
 
 @Component({
   selector: 'app-root',
