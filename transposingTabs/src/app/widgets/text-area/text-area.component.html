@@ -26,9 +26,7 @@
         <option value="G">G</option>
         <option value="G#">G#</option>
     </select>
-
 </mat-form-field>
-
 <button mat-raised-button color="primary" (click)="tabTextValue='';songNameTextValue='';albumNameTextValue='';artistNameTextValue=''">Clear Without Saving</button>
-<button mat-raised-button color="primary" (click)=" saveSong(songNameTextValue,artistNameTextValue,albumNameTextValue,inputKeyChoice.value,tabTextValue); tabTextValue=''; songNameTextValue=''; albumNameTextValue='';artistNameTextValue='';">Save Song</button>
+<button mat-raised-button color="primary" (click)=" saveSong(songNameTextValue,artistNameTextValue,albumNameTextValue,inputKeyChoice.value,tabTextValue); tabTextValue=''; songNameTextValue=''; albumNameTextValue='';artistNameTextValue=''">Save Song</button>
 <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>

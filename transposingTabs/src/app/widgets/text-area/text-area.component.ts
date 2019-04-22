@@ -1,7 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { DataService } from "../../data.service";
-import { NavigationEnd, Router } from '@angular/router';
-import { ShowOnDirtyErrorStateMatcher, MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -17,7 +15,7 @@ export class TextAreaComponent {
   showSpinner = false;
   @Output() songSaved = new EventEmitter<string>();
 
-  constructor(private dataService: DataService, private router: Router, public snackbar:MatSnackBar) {}
+  constructor(private dataService: DataService) {}
 
   saveSong(
     songName: string,
@@ -33,6 +31,7 @@ export class TextAreaComponent {
       inputKey,
       tabText
     );
+    this.showSpinner = true;
     response.subscribe(value => {
       console.log(value);
       this.songSaved.emit();
@@ -43,17 +42,5 @@ export class TextAreaComponent {
       this.showSpinner = false;
 
     }, 3000);
-
-    setTimeout(() => {
-      const snackbarRef = this.snackbar.open('Song saved!', 'OK', {
-        horizontalPosition: 'center',
-        panelClass: ['snack-bar']
-    });
-      snackbarRef.onAction().subscribe(() => {
-        this.router.navigate(['home']);
-      });
-    }, 3200);
-
-
-
-  }}
+  }
+}
