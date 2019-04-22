@@ -31,7 +31,6 @@ import { TabsComponent } from './views/tabs/tabs.component';
 import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -63,7 +62,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ScrollingModule,
     MatGridListModule,
     MatButtonModule,
-    MatSnackBarModule
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]
