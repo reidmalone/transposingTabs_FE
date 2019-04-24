@@ -55,4 +55,8 @@ gotoChords(songName:string,songArtist:string,songAlbum:string,songKey:string) {
   this.router.navigate(['/chordsview', { "songName": songName, "songArtist": songArtist,"songAlbum":songAlbum,"songKey":songKey}]);
 }
 
+gotoSongInfo(songName:string,songArtist:string,songAlbum:string,songKey:string) {
+  this.router.navigate(['/songinfo', { "songName": songName, "songArtist": songArtist,"songAlbum":songAlbum,"songKey":songKey}]);
+}
+
 }

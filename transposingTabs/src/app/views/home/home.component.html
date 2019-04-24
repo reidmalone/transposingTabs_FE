@@ -18,7 +18,7 @@
             </button>
       </mat-grid-tile>
       <mat-grid-tile>
-        <button mat-raised-button color="primary" class="buttonCenterElementStyling">
+        <button mat-raised-button color="primary" class="buttonCenterElementStyling" (click)="gotoSongInfo(song.song_name,song.artist,song.album,song.default_key)">
           <div style="display: inline-block; text-align: left; width:30%;">
           Song: {{song.song_name}} <br>
           Album: {{song.album}}<br>

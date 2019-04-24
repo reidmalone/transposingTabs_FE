@@ -31,6 +31,11 @@ import { TabsComponent } from './views/tabs/tabs.component';
 import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
+<<<<<<< Updated upstream
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+=======
+import { SongInfoComponent } from './views/song-info/song-info.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -45,6 +50,7 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
     ChordsComponent,
     InputComponent,
     LoadingSpinnerComponent,
+    SongInfoComponent,
   ],
   imports: [
     BrowserModule,
