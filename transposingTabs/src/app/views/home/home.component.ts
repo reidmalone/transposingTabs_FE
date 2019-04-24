@@ -21,12 +21,14 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['song_name','album','artist','default_key','actions'];
   h1Style: boolean = false;
   songList: Song[];
-/* commenting out dummy code
+//commenting out dummy code
+/*
   songList: Song[] = [
     {id: 1, song_name: "hodors song", album: "hodor", artist: "yeet", default_key: "G#"},
     {id: 2, song_name: "doo doo", album: "yes", artist: "mario", default_key: "C#"}
   ];
   */
+
  dataSource: MatTableDataSource<Song>;
 
   constructor(

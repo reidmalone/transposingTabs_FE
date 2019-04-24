@@ -1,5 +1,12 @@
 .buttonElementStyling{
   width:100%;
+  background: #673ab7;
+  &:hover {
+    background: #8E2BFF;
+  } 
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .8em;
 }
 
 .header {
