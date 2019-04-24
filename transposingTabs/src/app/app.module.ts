@@ -21,7 +21,7 @@ import { AboutComponent } from './views/about/about.component';
 import { SearchBarComponent } from './widgets/search-bar/search-bar.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatPaginatorModule } from '@angular/material';
 import { FretboardComponent } from './widgets/fretboard/fretboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -31,11 +31,8 @@ import { TabsComponent } from './views/tabs/tabs.component';
 import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
-<<<<<<< Updated upstream
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-=======
 import { SongInfoComponent } from './views/song-info/song-info.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -50,7 +47,7 @@ import { SongInfoComponent } from './views/song-info/song-info.component';
     ChordsComponent,
     InputComponent,
     LoadingSpinnerComponent,
-    SongInfoComponent,
+    SongInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +65,8 @@ import { SongInfoComponent } from './views/song-info/song-info.component';
     ScrollingModule,
     MatGridListModule,
     MatButtonModule,
+    MatPaginatorModule
+ 
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]
