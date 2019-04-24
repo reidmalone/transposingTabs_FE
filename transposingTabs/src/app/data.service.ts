@@ -38,6 +38,21 @@ export class DataService {
     return this.http.get<Tab>(this.postUrl + routeEnding);
   }
 
+  deleteSong(song_name,album,artist)
+  {
+    //songInfo.artist, songInfo.album, songInfo.songName
+
+    var routeEnding: string = "/delete";
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
+    let options = { headers: headers };
+
+    let body = { "songName" : song_name, "artist" : artist, "album" : album};
+    console.log(body);
+    return this.http.post<Response>(this.postUrl + routeEnding, body, options);
+  }
+
   saveSong(
     song_name: string,
     artist: string,

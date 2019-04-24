@@ -32,7 +32,6 @@ import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { SongInfoComponent } from './views/song-info/song-info.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +45,8 @@ import { SongInfoComponent } from './views/song-info/song-info.component';
     TabsComponent,
     ChordsComponent,
     InputComponent,
-    LoadingSpinnerComponent,
-    SongInfoComponent
-  ],
+    LoadingSpinnerComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

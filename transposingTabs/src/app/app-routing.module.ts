@@ -5,7 +5,6 @@ import { AboutComponent } from './views/about/about.component';
 import { TabsComponent } from './views/tabs/tabs.component';
 import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
-import { SongInfoComponent } from './views/song-info/song-info.component';
 import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'tabsview', component: TabsComponent, data: { animation: 'isRight'} },
   { path: 'chordsview', component: ChordsComponent , data: { animation: 'isLeft'}},
   { path: 'inputview', component: InputComponent , data: { animation: 'isRight'}},
-  { path: 'songinfo', component: SongInfoComponent , data: { animation: 'isRight'}}
 ];
 
 @NgModule({
