@@ -5,7 +5,7 @@ import { AboutComponent } from './views/about/about.component';
 import { TabsComponent } from './views/tabs/tabs.component';
 import { ChordsComponent } from './views/chords/chords.component';
 import { InputComponent } from './views/input/input.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule,MatTableModule]
+  exports: [RouterModule, MatTableModule]
 })
 export class AppRoutingModule { }

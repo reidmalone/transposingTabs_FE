@@ -63,7 +63,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ScrollingModule,
     MatGridListModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSnackBarModule 
  
   ],
   providers: [ DataService ],

@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { DataService } from "../../data.service";
-
+import { NavigationEnd, Router } from '@angular/router';
+import { ShowOnDirtyErrorStateMatcher, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: "app-text-area",
@@ -15,14 +16,15 @@ export class TextAreaComponent {
   showSpinner = false;
   @Output() songSaved = new EventEmitter<string>();
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router, public snackbar: MatSnackBar) {}
 
   saveSong(
     songName: string,
     artistName: string,
     albumName: string,
     inputKey: string,
-    tabText: string
+    tabText: string,
+    
   ) {
     var response = this.dataService.saveSong(
       songName,
@@ -31,7 +33,6 @@ export class TextAreaComponent {
       inputKey,
       tabText
     );
-    this.showSpinner = true;
     response.subscribe(value => {
       console.log(value);
       this.songSaved.emit();
@@ -42,5 +43,15 @@ export class TextAreaComponent {
       this.showSpinner = false;
 
     }, 3000);
+
+    setTimeout(() => {
+      const snackbarRef = this.snackbar.open('Song saved!', 'OK', {
+        horizontalPosition: 'center',
+        panelClass: ['snack-bar']
+    });
+      snackbarRef.onAction().subscribe(() => {
+        this.router.navigate(['']);
+      });
+    }, 3200);
   }
 }

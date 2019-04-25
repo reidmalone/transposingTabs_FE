@@ -1,3 +1,15 @@
 .example-full-width {
   width: 100%;
 }
+
+.mat-raised-button{
+  background-color: #673AB7;
+}
+
+::ng-deep .snack-bar {
+  background-color: #673AB7;
+  color: white;
+}
+::ng-deep .snack-bar .mat-simple-snackbar-action{
+  color: white;
+}
