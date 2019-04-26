@@ -1,5 +1,8 @@
-<section>
+<div style="text-align: center;">
+    <div style="margin-left:650px;">
         <app-fretboard [view-value]=newChords></app-fretboard>
+    </div>
+
         Current Key:
         <mat-form-field>
             <select matNativeControl required #keychoice id="keyChooser" [(value)]="currentKey">
@@ -18,5 +21,5 @@
             </select>
           </mat-form-field>
         <button mat-raised-button color="primary" (click)="getSongChords(currentSong,currentArtist,currentAlbum,keychoice.value)">Transpose</button>
-    </section>
+        </div>
     

@@ -13,5 +13,6 @@ export class FretboardComponent implements OnInit {
 
   ngOnInit() {
       document.getElementById("tabsView").innerHTML = "No Song Selected";
+      document.getElementById("tabsView").setAttribute('style','text-align: justify;');
   }
 }
