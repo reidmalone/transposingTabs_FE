@@ -13,6 +13,7 @@ export class ChordsComponent implements OnInit {
   currentSong:string;
   currentAlbum:string;
   currentArtist:string;
+  currentKey:string;
 
   constructor(private _Activatedroute:ActivatedRoute,private dataService: DataService) { }
 
@@ -22,14 +23,22 @@ export class ChordsComponent implements OnInit {
     this._Activatedroute.snapshot.params['songArtist'],
     this._Activatedroute.snapshot.params['songAlbum']
     ,this._Activatedroute.snapshot.params['songKey'])
+
+        
+    this.currentKey = this._Activatedroute.snapshot.params['songKey'];
   }
 
   getSongChords(songName:string,songArtist:string,songAlbum:string,songKey:string){
-    this.dataService.getTabsForSong(songName,songArtist,songAlbum,songKey).subscribe( (value) => {
-      this.newChords = value.Tab;
+    this.dataService.getChordsForSong(songName,songArtist,songAlbum,songKey).subscribe( (value) => {
+      this.newChords = this.removeUnderscores(value.chords);
       this.currentSong = songName;
       this.currentAlbum = songAlbum;
       this.currentArtist = songArtist;
     });
   }
+
+  removeUnderscores(newChords:string) :string {
+    return newChords.replace(/_/g,"&nbsp;")
+  }
+
 }

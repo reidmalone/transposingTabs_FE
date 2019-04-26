@@ -9,10 +9,11 @@ import { ShowOnDirtyErrorStateMatcher, MatSnackBar } from '@angular/material';
   styleUrls: ["./text-area.component.scss"]
 })
 export class TextAreaComponent {
-  tabTextValue = "paste tabs here";
-  songNameTextValue = "please enter song name";
-  albumNameTextValue = "please enter album name";
-  artistNameTextValue = "please enter artist name";
+  tabTextValue: string;
+  songNameTextValue: string;
+  albumNameTextValue: string;
+  artistNameTextValue: string;
+  chordTextValue: string;
   showSpinner = false;
   @Output() songSaved = new EventEmitter<string>();
 
@@ -24,14 +25,19 @@ export class TextAreaComponent {
     albumName: string,
     inputKey: string,
     tabText: string,
-    
+    chordTextValue, string
   ) {
+
+    // if(!songName || !artistName || !albumName || !inputKey || !tabText || !chordTextValue)
+    //   return;
+
     var response = this.dataService.saveSong(
       songName,
       artistName,
       albumName,
       inputKey,
-      tabText
+      tabText,
+      chordTextValue
     );
     response.subscribe(value => {
       console.log(value);
