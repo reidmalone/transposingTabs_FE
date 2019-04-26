@@ -1,17 +1,19 @@
 <mat-form-field class="example-full-width">
-    <textarea ref-textarea [(ngModel)]="songNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input song name"></textarea>
+    <textarea ref-textarea [(ngModel)]="songNameTextValue" rows="1" matInput placeholder="Input song name"></textarea>
   </mat-form-field>
 <mat-form-field class="example-full-width">
-    <textarea ref-textarea [(ngModel)]="albumNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input album name"></textarea>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-      <textarea ref-textarea [(ngModel)]="artistNameTextValue" rows="1" onfocus="this.value=''" matInput placeholder="Input artist name"></textarea>
-    </mat-form-field>
+    <textarea ref-textarea [(ngModel)]="albumNameTextValue" rows="1" matInput placeholder="Input album name"></textarea>
+</mat-form-field>
 <mat-form-field class="example-full-width">
-    <textarea ref-textarea [(ngModel)]="tabTextValue" rows="4" onfocus="this.value=''" matInput placeholder="Input tabs below"></textarea>
-  </mat-form-field>
+      <textarea ref-textarea [(ngModel)]="artistNameTextValue" rows="1" matInput placeholder="Input artist name"></textarea>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+    <textarea ref-textarea [(ngModel)]="tabTextValue" rows="8" matInput placeholder="Input tabs below"></textarea>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+    <textarea ref-textarea [(ngModel)]="chordTextValue" rows="8" matInput placeholder="Input chords below"></textarea>
+</mat-form-field>
 <mat-form-field>
-
     <select matNativeControl required #inputKeyChoice id="inputKeyChooser" placeholder="Enter New Songs Key" >
         <option value="A">A</option>
         <option value="A#" selected="selected">A#</option>
@@ -27,5 +29,6 @@
         <option value="G#">G#</option>
     </select>
 </mat-form-field>
-  <button mat-raised-button color="primary" (click)="tabTextValue='';songNameTextValue='';albumNameTextValue='';artistNameTextValue=''">Clear Without Saving</button>
-<button mat-raised-button color="primary" (click)=" saveSong(songNameTextValue,artistNameTextValue,albumNameTextValue,inputKeyChoice.value,tabTextValue); tabTextValue=''; songNameTextValue=''; albumNameTextValue='';artistNameTextValue=''">Save Song</button>
+<button mat-raised-button color="primary" (click)="tabTextValue='';songNameTextValue='';albumNameTextValue='';artistNameTextValue='';chordTextValue=''">Clear Without Saving</button>
+<button mat-raised-button color="primary" (click)=" saveSong(songNameTextValue,artistNameTextValue,albumNameTextValue,inputKeyChoice.value,tabTextValue,chordTextValue); tabTextValue=''; songNameTextValue=''; albumNameTextValue='';artistNameTextValue='';chordTextValue=''">Save Song</button>
+<app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>

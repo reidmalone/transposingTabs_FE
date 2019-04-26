@@ -1,5 +1,12 @@
 .buttonElementStyling{
   width:100%;
+  background: #673ab7;
+  &:hover {
+    background: #8E2BFF;
+  } 
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .8em;
 }
 
 .header {
@@ -9,5 +16,13 @@
 
 .buttonCenterElementStyling{
   width:100%;
+  text-align: center;
+}
+table {
+  text-align: center !important;
+  width: 100%;
+}
+
+.mat-header-cell {
   text-align: center;
 }
